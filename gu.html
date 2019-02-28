@@ -1,0 +1,115 @@
+<html>
+<head>
+<script src="p5/p5.min.js"></script>
+<style>
+body {
+  overflow:hidden;
+  position:relative;
+  padding:0;
+  margin:0;
+}
+
+miX {
+  position:absolute;
+}
+miY {
+  position:absolute;
+}
+</style>
+</head>
+<body>
+<div id="miX"></div>
+<div id="miY"></div>
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+var ball = new ball(); //make global object
+var ballB = new ballB();
+var d = 100;
+var dY = 100;
+var d2 = 200;
+var d2Y = 150;
+function setup() {
+  createCanvas(w,h);
+}
+
+function draw() {
+  background("white");
+  ball.show();
+  ball.move();
+  ballB.show();
+  ballB.move();
+  //ballB.touch();
+}
+
+function ball() {
+  this.x = 100;
+  this.y = 100;
+  this.show = function() {
+    fill(color("red"));
+    ellipse(this.x,this.y,50,50);
+  }
+  
+  this.move = function() {
+    if ((keyIsDown(65)) && (this.x > 0)) {
+      this.x -= 10;
+      d -= 10;
+      document.getElementById("miX").innerHTML = d + " " +dY;
+    }
+    if ((keyIsDown(68)) && (this.x < w)) {
+      this.x += 10;
+      d += 10;
+      document.getElementById("miX").innerHTML = d + " " +dY;
+    }
+    if ((keyIsDown(87)) && (this.y > 0)) {
+      this.y -= 10;
+      dY -= 10;
+      document.getElementById("miX").innerHTML = d + " " +dY;
+    }
+    if ((keyIsDown(83)) && (this.y < h)) {
+      this.y += 10;
+      dY += 10;
+      document.getElementById("miX").innerHTML = d + " " +dY;
+    }
+  }
+}
+
+function ballB() {
+  this.x = 200;
+  this.y = 150;
+  this.show = function() {
+    fill(color("blue"));
+    ellipse(this.x,this.y,50,50);
+  }
+  this.touch = function() {
+    if ((d === d2)) && (dY === d2Y)) {
+    window.alert("he");
+  }
+}
+  this.move = function() {
+    if ((keyIsDown(74)) && (this.x > 0)) {
+      this.x -= 10;
+      d2 -= 10;
+      document.getElementById("miY").innerHTML = d2 + " " +d2Y;
+    }
+    if ((keyIsDown(76)) && (this.x < w)) {
+      this.x += 10;
+      d2 += 10;
+      document.getElementById("miY").innerHTML = d2 + " " + d2Y;
+    }
+    if ((keyIsDown(73)) && (this.y > 0)) {
+      this.y -= 10;
+      d2Y -= 10;
+      document.getElementById("miY").innerHTML = d2 + " " +d2Y;
+    }
+    if ((keyIsDown(75)) && (this.y < h)) {
+      this.y += 10;
+      d2Y += 10;
+      document.getElementById("miY").innerHTML = d2 + " " +d2Y;
+    }
+  }
+}
+
+</script>
+</body>
+</html>
