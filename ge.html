@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="p5/p5.min.js"></script>
+<style>
+body {
+  overflow:hidden;
+  padding:0;
+  margin:0;
+}
+</style>
+</head>
+<body>
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+var posX = 100;
+var posY = 100;
+var Rsize = 120;
+var Rspeed = 5;
+function setup() {
+  createCanvas(w,h);
+}
+
+function draw() {
+  background("gray");
+  fill(color("dodgerblue"));
+  strokeWeight(0);
+  rect(posX,posY,Rsize,Rsize,20);
+  if ((keyIsDown(65)) && (posX > 0)) {
+    posX -= Rspeed;
+  }
+  if ((keyIsDown(68)) && (posX < w-Rsize)) {
+    posX += Rspeed;
+  }
+  if ((keyIsDown(87)) && (posY > 0)) {
+    posY -= Rspeed;
+}
+  if ((keyIsDown(83)) && (posY < h-Rsize)) {
+    posY += Rspeed;
+}
+}
+</script>
+</body>
+</html>

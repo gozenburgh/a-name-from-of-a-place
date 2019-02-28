@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src ="p5/p5.min.js"></script>
+</head>
+<body>
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+var weight = 3;
+
+function setup(){
+  createCanvas(w,h);
+}
+
+function draw(){
+  stroke(color(random(256),random(256),random(256)));
+  if (mouseIsPressed){
+  line(mouseX,mouseY,pmouseX,pmouseY);
+  strokeWeight(weight);
+}
+}
+
+function keyPressed() {
+  if (keyCode == "73") {
+    weight += 1;
+  }
+  if (keyCode == "74") {
+    weight += -1;
+  }
+}
+/*if (keyCode == "83") {
+  save("pic.jpg");
+}*/
+
+</script>
+</body>
+</html>

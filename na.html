@@ -1,0 +1,62 @@
+<html>
+<head>
+<script src ="p5/p5.min.js"></script>
+</head>
+<body>
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+var posX = w;
+var posY = h;
+var posX2 = w;
+var posY2 = h;
+var r;
+var g;
+var b;
+
+
+function setup() {
+  createCanvas(w,h);
+}
+
+function draw(){
+  var r = random(256);
+  var g = random(256);
+  var b = random(256);
+  fill(color(r,g,b));
+  strokeWeight(0);
+  ellipse(posX/2,posY/2,100,100);
+  if ((posX < 0) || (posX > w)){
+    posX = w;
+  }
+  else{
+     posX -= random(-10,10);
+  }
+  if ((posY < 0) || (posY > h)){
+    posY = h;
+  }
+ else{
+     posY -= random(-10,10);
+  }
+}
+
+  /*fill(color(r,g,b));
+  strokeWeight(0);
+  ellipse(posX2,posY2,100,100);
+  if ((posX2 < 0) || (posX2 > w2)){
+    posX2 = w/12;
+  }
+  else{
+     posX2 -= (random-10,10);
+  }
+  if ((posY2 < 0) || (posY2 > h2)){
+    posY2 = h/12;
+  }
+ else{
+     posY2 -= (random-10,10);
+  }
+}*/
+
+</script>
+</body>
+</html>
