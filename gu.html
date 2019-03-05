@@ -4,13 +4,12 @@
 <style>
 body {
   overflow:hidden;
-  position:relative;
   padding:0;
   margin:0;
 }
 
 miX {
-  position:absolute;
+  position: absolute;
 }
 miY {
   position:absolute;
@@ -18,8 +17,8 @@ miY {
 </style>
 </head>
 <body>
-<div id="miX"></div>
-<div id="miY"></div>
+<div id="miX">1 ball</div>
+<div id="miY">2 ball</div>
 <script>
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -39,7 +38,7 @@ function draw() {
   ball.move();
   ballB.show();
   ballB.move();
-  //ballB.touch();
+  ballB.touch();
 }
 
 function ball() {
@@ -66,7 +65,7 @@ function ball() {
       dY -= 10;
       document.getElementById("miX").innerHTML = d + " " +dY;
     }
-    if ((keyIsDown(83)) && (this.y < h)) {
+    if ((keyIsDown(83)) && (this.y < h-40)) {
       this.y += 10;
       dY += 10;
       document.getElementById("miX").innerHTML = d + " " +dY;
@@ -82,8 +81,9 @@ function ballB() {
     ellipse(this.x,this.y,50,50);
   }
   this.touch = function() {
-    if ((d === d2)) && (dY === d2Y)) {
-    window.alert("he");
+    if ((d == d2) && (dY == d2Y)) {
+    window.alert("heh ur stuck FOREVERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
+    endloop();
   }
 }
   this.move = function() {
@@ -92,7 +92,7 @@ function ballB() {
       d2 -= 10;
       document.getElementById("miY").innerHTML = d2 + " " +d2Y;
     }
-    if ((keyIsDown(76)) && (this.x < w)) {
+    if ((keyIsDown(76)) && (this.x < w-40)) {
       this.x += 10;
       d2 += 10;
       document.getElementById("miY").innerHTML = d2 + " " + d2Y;
@@ -102,7 +102,7 @@ function ballB() {
       d2Y -= 10;
       document.getElementById("miY").innerHTML = d2 + " " +d2Y;
     }
-    if ((keyIsDown(75)) && (this.y < h)) {
+    if ((keyIsDown(75)) && (this.y < h-40)) {
       this.y += 10;
       d2Y += 10;
       document.getElementById("miY").innerHTML = d2 + " " +d2Y;
