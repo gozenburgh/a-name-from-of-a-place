@@ -24,12 +24,11 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 var ball = new ball(); //make global object
 var ballB = new ballB();
-/*var d = 100;
-var dY = 100;
-var d2 = 200;
-var d2Y = 150;*/
 var posX = w;
 var posY = h;
+var x = 100;
+var y = 100;
+
 
 function setup() {
   createCanvas(w,h);
@@ -41,35 +40,34 @@ function draw() {
   ball.move();
   ballB.show();
   ballB.move();
-  //ballB.touch();
+  ballB.ends();
+  var d = (dist(x,y,posX,posY));
 }
 
 function ball() {
-  this.x = 100;
-  this.y = 100;
   this.show = function() {
     fill(color("red"));
-    ellipse(this.x,this.y,50,50);
+    ellipse(x,y,50,50);
   }
   this.move = function() {
-    if ((keyIsDown(65)) && (this.x > 0)) {
-      this.x -= 10;
-      //d -= 10;
+    if ((keyIsDown(65)) && (x > 0)) {
+      x -= 1.7;
+      
       //document.getElementById("miX").innerHTML = d + " " +dY;
     }
-    if ((keyIsDown(68)) && (this.x < w)) {
-      this.x += 10;
-      //d += 10;
+    if ((keyIsDown(68)) && (x < w)) {
+      x += 1.7;
+      
       //document.getElementById("miX").innerHTML = d + " " +dY;
     }
-    if ((keyIsDown(87)) && (this.y > 0)) {
-      this.y -= 10;
-      //dY -= 10;
+    if ((keyIsDown(87)) && (y > 0)) {
+      y -= 1.7;
+      
       //document.getElementById("miX").innerHTML = d + " " +dY;
     }
-    if ((keyIsDown(83)) && (this.y < h-40)) {
-      this.y += 10;
-      //dY += 10;
+    if ((keyIsDown(83)) && (y < h-40)) {
+      y += 1.7;
+      
       //document.getElementById("miX").innerHTML = d + " " +dY;
     }
   }
@@ -79,22 +77,20 @@ function ballB() {
   this.show = function() {
   fill(color("blue"));
   //strokeWeight(0);
-  ellipse(posX,posY,100,100);
+  ellipse(posX,posY,150,150);
   }
-  this.touch = function() {
-    if ((d == d2) && (dY == d2Y)) {
-    window.alert("heh ur stuck FOREVERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
-    endloop();
+  this.ends = function() {
+   if ((d = 0)){
+    noloop();
     }
   }
   this.move = function() {
-  if ((posX < 0) || (posX > w)){
+  if ((posX < 1) || (posX > w)){
     posX = w;
     
   }
   else{
      posX -= (random-10,10);
-     
      
   }
   if ((posY < 0) || (posY > h)){
