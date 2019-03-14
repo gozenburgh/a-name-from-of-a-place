@@ -22,12 +22,14 @@ miY {
 <script>
 var w = window.innerWidth;
 var h = window.innerHeight;
+
 var ball = new ball(); //make global object
 var ballB = new ballB();
-var posX = w;
-var posY = h;
-var x = 100;
-var y = 100;
+var x1 = 100;
+var y1 = 100;
+var x2 = w;
+var y2 = h;
+
 
 
 function setup() {
@@ -37,72 +39,65 @@ function setup() {
 function draw() {
   background("white");
   ball.show();
-  ball.move();
   ballB.show();
+  ball.move();
   ballB.move();
-  ballB.ends();
-  var d = (dist(x,y,posX,posY));
+  //var d = dist(x1,y1,x2,y2);
 }
 
 function ball() {
   this.show = function() {
     fill(color("red"));
-    ellipse(x,y,50,50);
+    ellipse(x1,y1,50,50);
   }
+  /*function ends() {
+    if (d == 0) {
+    noloop();
+    }*/
   this.move = function() {
-    if ((keyIsDown(65)) && (x > 0)) {
-      x -= 1.7;
+    if ((keyIsDown(65)) && (x1 > 0)) {
+      x1 -= 1.7;
       
-      //document.getElementById("miX").innerHTML = d + " " +dY;
     }
-    if ((keyIsDown(68)) && (x < w)) {
-      x += 1.7;
+    if ((keyIsDown(68)) && (x1 < w)) {
+      x1 += 1.7;
       
-      //document.getElementById("miX").innerHTML = d + " " +dY;
     }
-    if ((keyIsDown(87)) && (y > 0)) {
-      y -= 1.7;
+    if ((keyIsDown(87)) && (y1 > 0)) {
+      y1 -= 1.7;
       
-      //document.getElementById("miX").innerHTML = d + " " +dY;
     }
-    if ((keyIsDown(83)) && (y < h-40)) {
-      y += 1.7;
+    if ((keyIsDown(83)) && (y1 < h-40)) {
+      y1 += 1.7;
       
-      //document.getElementById("miX").innerHTML = d + " " +dY;
     }
   }
 }
 
-function ballB() {
+/*function ballB() {
   this.show = function() {
   fill(color("blue"));
-  //strokeWeight(0);
-  ellipse(posX,posY,150,150);
-  }
-  this.ends = function() {
-   if ((d = 0)){
-    noloop();
-    }
+  ellipse(x2,y2,150,150);
   }
   this.move = function() {
-  if ((posX < 1) || (posX > w)){
-    posX = w;
+  if ((x2 < 1) || (x2 > w)){
+    x2 = w;
     
   }
   else{
-     posX -= (random-10,10);
+     x2 -= (random-10,10);
      
   }
-  if ((posY < 0) || (posY > h)){
-    posY = h;
+  if ((y2 < 0) || (y2 > h)){
+    y2 = h;
     
   }
  else{
-     posY -= (random-10,10);
+     y2 -= (random-10,10);
      
   }
 }
-}
+}*/
 
 /*function ballB() {
   this.x = 200;
@@ -120,23 +115,18 @@ function ballB() {
   this.move = function() {
     if ((keyIsDown(74)) && (this.x > 0)) {
       this.x -= 10;
-      d2 -= 10;
-      document.getElementById("miY").innerHTML = d2 + " " +d2Y;
     }
     if ((keyIsDown(76)) && (this.x < w)) {
       this.x += 10;
-      d2 += 10;
-      document.getElementById("miY").innerHTML = d2 + " " + d2Y;
+      
     }
     if ((keyIsDown(73)) && (this.y > 0)) {
       this.y -= 10;
-      d2Y -= 10;
-      document.getElementById("miY").innerHTML = d2 + " " +d2Y;
+      
     }
     if ((keyIsDown(75)) && (this.y < h-40)) {
       this.y += 10;
-      d2Y += 10;
-      document.getElementById("miY").innerHTML = d2 + " " +d2Y;
+      
     }
   }
 }*/
