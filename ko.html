@@ -1,26 +1,37 @@
 <html>
 <head>
-<script src="p5.mi.js"></script>
-
+<script src="p5.js"></script>
+<script src="ka.js"></script>
+<script src="kya.js"></script>
+<script src="kaa.js"></script>
+<script src="p5.collide2d.js"></script>
+<style>
+body {
+  overflow: hidden;
+  padding:0;
+  margin:0;
+}
+</style>
 </head>
 <body>
 
 <script>
 var w = window.innerWidth;
 var h = window.innerHeight;
-//var jumper = new jumper();
-//var barri = new barri();
+var jumper = new jumper();
+var barri = new barri();
+var plate = new plate();
 
 function setup() {
   createCanvas(w,h);
 }
-
 function draw() {
   background("black");
-  /*jumper.show();
+  jumper.show();
   jumper.update();
   barri.show();
   barri.update();
+  plate.show();
   hit = collideRectCircle(
   barri.x,
   barri.y,
@@ -28,10 +39,23 @@ function draw() {
   barri.he,
   jumper.x,
   jumper.y,
-  100);
+  100/2.5);
   if (hit === true) {
+    alert("nmmmm");
     noloop();
-  }*/
+  }
+  hit = collideRectCircle(
+  plate.x,
+  plate.y,
+  plate.wi,
+  plate.he,
+  jumper.x,
+  jumper.y,
+  100/2.5);
+  if (hit === true) {
+    jumper.y + .1;
+    jumper.velocity = -10;
+  }
 }
 </script>
 </body>
