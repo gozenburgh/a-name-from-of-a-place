@@ -1,6 +1,6 @@
 <html>
 <head>
-<script src='p5/p5.min.js'></script>
+<script src='p5.min.js'></script>
 </head>
 <body>
 
@@ -8,17 +8,14 @@
 var w = window.innerWidth;
 var h = window.innerHeight;
 var jumper = new jumper();
-
 function setup() {
   createCanvas(w,h);
 }
-
 function draw() {
   background("black");
   jumper.show();
   jumper.update();
 }
-
 function jumper() {
   this.x = 50;
   this.y = 0;
@@ -33,10 +30,10 @@ function jumper() {
     this.velocity += this.lift;
   }
   this.Lside = function() {
-    this.x -= 1;
+    this.x -= 5;
   }
   this.Rside = function() {
-    this.x += 1;
+    this.x += 5;
   }
   this.update = function() {
     this.velocity += this.gravity;
@@ -52,7 +49,6 @@ function jumper() {
     }
   }
   }
-
 function keyPressed() {
   if (keyIsDown(32)) {
     jumper.up();
