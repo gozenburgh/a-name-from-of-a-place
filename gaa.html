@@ -1,0 +1,101 @@
+<html>
+<head>
+<script src="p5.min.js"></script>
+<style>
+body {
+  overflow:hidden;
+  padding:0;
+  margin:0;
+}
+</style>
+</head>
+<body>
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+var barri = new barri();
+var barri2 = new barri2();
+var barri3 = new barri3();
+function setup() {
+  createCanvas(w,h);
+}
+function draw() {
+  background("black");
+  barri.show();
+  barri.update();
+  barri2.show();
+  barri2.update();
+  barri3.show();
+  barri3.update();
+}
+function barri() {
+  this.leftPull = .0001;
+  this.velocity = 1;
+  this.wi = 250;
+  this.he = 250;
+  this.x = w + this.wi;
+  this.y = Math.floor((Math.random() * h) + 10);
+  this.show = function() {
+    this.x;
+    this.y;
+    fill(color("white"));
+    rect(this.x,this.y,this.wi,this.he);
+  }
+  this.update = function() {
+    this.velocity += this.leftPull;
+    this.x += this.velocity;
+    if (this.x < w - w) {
+      this.x = w + this.wi;
+      this.y = Math.floor((Math.random() * h) + 10);
+    }
+  }
+}
+
+function barri2() {
+  this.leftPull = .0001;
+  this.velocity = 5;
+  this.wi = 25;
+  this.he = 25;
+  this.x = w + this.wi;
+  this.y = Math.floor((Math.random() * h) + 10);
+  this.show = function() {
+    this.x;
+    this.y;
+    fill(color("white"));
+    rect(this.x,this.y,this.wi,this.he);
+  }
+  this.update = function() {
+    this.velocity += this.leftPull;
+    this.x -= this.velocity;
+    if (this.x  /*+ 500*/ < w - w) {
+      this.x = w + this.wi;
+      this.y = Math.floor((Math.random() * h) + 10);
+    }
+  }
+}
+
+function barri3() {
+  this.leftPull = .0001;
+  this.velocity = 2.25;
+  this.wi = 75;
+  this.he = 75;
+  this.x = w + this.wi;
+  this.y = Math.floor((Math.random() * h) + 10);
+  this.show = function() {
+    this.x;
+    this.y;
+    fill(color("white"));
+    rect(this.x,this.y,this.wi,this.he);
+  }
+  this.update = function() {
+    this.velocity += this.leftPull;
+    this.x -= this.velocity;
+    if (this.x /*+ 500*/ < w - w) {
+      this.x = w + this.wi;
+      this.y = Math.floor((Math.random() * h) + 10);
+    }
+  }
+}
+</script>
+</body>
+</html>
