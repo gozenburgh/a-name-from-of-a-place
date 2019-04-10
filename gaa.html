@@ -11,7 +11,6 @@ body {
 </head>
 <body>
 <script>
-
 var w = window.innerWidth;
 
 var h = window.innerHeight;
@@ -21,6 +20,11 @@ var barri = new barri();
 var barri2 = new barri2();
 
 var barri3 = new barri3();
+
+var barri4 = new barri4();
+
+var barri5 = new barri5();
+
 
 function setup() {
 
@@ -46,12 +50,22 @@ function draw() {
 
   barri3.update();
   barri3.rep();
+  
+  barri4.show();
+
+  barri4.update();
+  barri4.rep();
+  
+  barri5.show();
+
+  barri5.update();
+  barri5.rep();
 
 }
 
 function barri() {
 
-  this.leftPull = 1;
+  this.leftPull = .0001;
 
   this.velocity = .5;
 
@@ -85,9 +99,6 @@ function barri() {
       this.x -= this.velocity;
     }
 
-    /*this.velocity += this.leftPull;
-
-    this.x -= this.velocity;*/
   }    
   this.rep = function() {
 
@@ -140,9 +151,6 @@ function barri2() {
       this.x -= this.velocity;
     }
 
-    /*this.velocity += this.leftPull;
-
-    this.x -= this.velocity;*/
   }    
   this.rep = function() {
 
@@ -157,8 +165,6 @@ function barri2() {
 
 }
 }
-
-
 
 function barri3() {
 
@@ -196,9 +202,6 @@ function barri3() {
       this.x -= this.velocity;
     }
 
-    /*this.velocity += this.leftPull;
-
-    this.x -= this.velocity;*/
   }    
   this.rep = function() {
 
@@ -207,6 +210,114 @@ function barri3() {
       this.x = w + this.wi;
 
       this.y = Math.floor((Math.random() * h) + 10);
+
+    }
+    
+
+}
+
+}
+
+function barri4() {
+
+  this.leftPull = .0001;
+
+  this.velocity = 1.5;
+
+  this.wi = Math.floor(Math.random() * 150);
+
+  this.he = Math.floor(Math.random() * 150);
+
+  this.x = w + this.wi;
+
+  this.y = Math.floor((Math.random() * h) + 10);
+
+  this.show = function() {
+
+    this.x;
+
+    this.y;
+
+    fill(color("white"));
+
+    rect(this.x,this.y,this.wi,this.he);
+
+  }
+
+  this.update = function() {
+    if (this.velocity < 35) {
+      this.velocity += this.leftPull;
+      this.x -= this.velocity;
+
+  }
+    else {
+      this.x -= this.velocity;
+    }
+
+  }    
+  this.rep = function() {
+
+    if (this.x  + 500 < w - w) {
+      
+      this.velocity = Math.floor(Math.random() * 15);
+      
+      this.wi = Math.floor(Math.random() * 120);
+
+      this.he = Math.floor(Math.random() * 120);
+
+      this.x = w + this.wi;
+
+      this.y = Math.floor((Math.random() * h) + 10);
+
+    }
+    
+
+}
+
+}
+
+function barri5() {
+
+  this.velocity = 1;
+
+  this.wi = Math.floor(Math.random() * 200);
+
+  this.he = Math.floor(Math.random() * 200);
+
+  this.x = w + this.wi;
+
+  this.y = Math.floor((Math.random() * h) + 10);
+
+  this.show = function() {
+
+    this.x;
+
+    this.y;
+
+    fill(color("white"));
+
+    rect(this.x,this.y,this.wi,this.he);
+
+  }
+
+  this.update = function() {
+      this.x -= this.velocity;
+
+  }    
+  this.rep = function() {
+
+    if (this.x  + 500 < w - w) {
+      
+      this.velocity = Math.floor(Math.random() * 35);
+      
+      this.wi = Math.floor(Math.random() * 200);
+
+      this.he = Math.floor(Math.random() * 200);
+
+      this.x = w + this.wi;
+
+      this.y = Math.floor((Math.random() * h) + 10);
+      
 
     }
     
