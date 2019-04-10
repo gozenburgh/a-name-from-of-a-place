@@ -11,42 +11,79 @@ body {
 </head>
 <body>
 <script>
+
 var w = window.innerWidth;
+
 var h = window.innerHeight;
+
 var plr = new plr();
 
+
+
 function setup() {
+
   createCanvas(w,h);
-}
-function draw() {
-  background("gray");
-  plr.show();
-  plr.update();
+
 }
 
+function draw() {
+
+  background("gray");
+
+  plr.show();
+
+  //plr.update();
+
+}
+
+
+
 function plr() {
-this.x = 125;
-this.y = 200;
+
+//this.x = 125;
+
+//this.y = 200;
+
 var Rspeed = 5;
+
 this.show = function() {
+
   fill(color("dodgerblue"));
+
   strokeWeight(0);
-  rect(this.x,this.y,120,120,20);
+
+  ellipse(mouseX,mouseY,120,120,20);
+
 }
-this.update = function() {
+
+/*this.update = function() {
+
   if ((keyIsDown(65)) && (this.x > 0)) {
+
     this.x -= Rspeed;
+
   }
+
   if ((keyIsDown(68)) && (this.x < w-120)) {
+
     this.x += Rspeed;
+
   }
+
   if ((keyIsDown(87)) && (this.y > 0)) {
+
     this.y -= Rspeed;
+
 }
+
   if ((keyIsDown(83)) && (this.y < h-120)) {
+
     this.y += Rspeed;
+
 }
-}
+
+}*/
+
 }
 </script>
 </body>
