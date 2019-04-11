@@ -12,79 +12,40 @@ body {
 <body>
 <script>
 var w = window.innerWidth;
+
 var h = window.innerHeight;
-var barri = new barri();
-var barri2 = new barri2();
-var barri3 = new barri3();
+
+var suta = new suta();
+
 
 function setup() {
+
   createCanvas(w,h);
+  tim = millis();
 }
+
 function draw() {
+  
   background("black");
-  barri.show();
-  setTimeout(barri.update(),5000);
-  barri2.show();
-  barri2.update();
-  barri3.show();
-  barri3.update();
+  suta.act();
+  
 }
-function barri() {
-  this.leftPull = .5;
-  this.velocity = 5;
-  this.wi = 100;
-  this.he = 100;
-  this.x = w + this.wi;
-  this.y = Math.floor((Math.random() * h) + 10);
-  this.show = function() {
-    this.x;
-    this.y;
-    fill(color("white"));
-    rect(this.x,this.y,this.wi,this.he);
-  }
-  this.update = function() {
-    this.velocity += this.leftPull;
-    this.x -= this.velocity;
-  }
-  }
 
-function barri2() {
-  this.leftPull = .5;
-  this.velocity = 5;
-  this.wi = 100;
-  this.he = 100;
-  this.x = w + this.wi;
-  this.y = Math.floor((Math.random() * h) + 10);
-  this.show = function() {
-    this.x;
-    this.y;
-    fill(color("white"));
-    rect(this.x,this.y,this.wi,this.he);
-  }
-  this.update = function() {
-    this.velocity += this.leftPull;
-    this.x -= this.velocity;
-  }
-  }
 
-function barri3() {
-  this.leftPull = .5;
-  this.velocity = 5;
-  this.wi = 100;
-  this.he = 100;
-  this.x = w + this.wi;
-  this.y = Math.floor((Math.random() * h) + 10);
-  this.show = function() {
-    this.x;
-    this.y;
-    fill(color("white"));
-    rect(this.x,this.y,this.wi,this.he);
+
+function suta() {
+  this.act = function() {
+    if (millis() < (1000)) {
+  window.alert("welcome");
+    }
+   }
+}
+
+function keyPressed() {
+  if (keyIsDown(32)) {
+    window.location.reload();
   }
-  this.update = function() {
-    this.velocity += this.leftPull;
-    this.x -= this.velocity;
-  }
-  }
+}
 </script>
 </body>
 </html>
