@@ -27,6 +27,7 @@ body {
 var w = window.innerWidth;
 var h = window.innerHeight;
 
+var ad = new ad();
 var suta = new suta();
 var plr = new plr();
 var barri = new barri();
@@ -44,6 +45,8 @@ function draw() {
   background("black");
   
   suta.act();
+  
+  ad.actad();
   
   plr.show();
   
@@ -126,6 +129,15 @@ function draw() {
   if (hit === true) {
     document.getElementById("entag").innerHTML = "Score is " + (Math.floor(tim)) + " points";
     noloop();
+  }
+}
+  
+function ad() {
+  this.poi = 0;
+  this.actad = function() {
+    ad.poi;
+    ad.poi++;
+    document.getElementById("entag").innerHTML = ad.poi;
   }
 }
 
