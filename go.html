@@ -8,25 +8,26 @@ body {
   padding:0;
   margin:0;
 }
-
 #entag {
   position:absolute;
   padding:0;
   margin:0;
   color:white;
+  text-align:center;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-style:italic;
+  text-shadow:-3px -3px gold;
+  font-size: 173.5px;
 }
-
 </style>
 </head>
 <body>
 
-<h1 id="entag"></h1>
-<h1 id="ottag"></h1>
+<div id="entag"></div>
 
 <script>
 var w = window.innerWidth;
 var h = window.innerHeight;
-
 var ad = new ad();
 var suta = new suta();
 var plr = new plr();
@@ -35,14 +36,16 @@ var barri2 = new barri2();
 var barri3 = new barri3();
 var barri4 = new barri4();
 var barri5 = new barri5();
-
 function setup() {
   createCanvas(w,h);
+  
   tim = millis();
 }
 function draw() {
   
   background("black");
+  
+ cursor("none");
   
   suta.act();
   
@@ -73,9 +76,10 @@ function draw() {
   barri.he,
   mouseX,
   mouseY,
-  100);
+  100/2);
   if (hit === true) {
-    document.getElementById("entag").innerHTML = "Score is " + (Math.floor(tim)) + " points";
+    document.getElementById("entag").innerHTML = "END!!! Score is " + ad.poi + " points";
+    cursor("default");
     noloop();
   }
   
@@ -86,9 +90,10 @@ function draw() {
   barri2.he,
   mouseX,
   mouseY,
-  100);
+  100/2);
   if (hit === true) {
-    document.getElementById("entag").innerHTML = "Score is " + (Math.floor(tim)) + " points";
+    document.getElementById("entag").innerHTML = "END!!! Score is " + ad.poi + " points";
+    cursor("default");
     noloop();
   }
   
@@ -99,9 +104,10 @@ function draw() {
   barri3.he,
   mouseX,
   mouseY,
-  100);
+  100/2);
   if (hit === true) {
-    document.getElementById("entag").innerHTML = "Score is " + (Math.floor(tim)) + " points";
+    document.getElementById("entag").innerHTML = "END!!! Score is " + ad.poi + " points";
+    cursor("default");
     noloop();
   }
   
@@ -112,9 +118,10 @@ function draw() {
   barri4.he,
   mouseX,
   mouseY,
-  100);
+  100/2);
  if (hit === true) {
-    document.getElementById("entag").innerHTML = "Score is " + (Math.floor(tim)) + " points";
+    document.getElementById("entag").innerHTML = "END!!! Score is " + ad.poi + " points";
+    cursor("default");
     noloop();
   }
   
@@ -125,9 +132,10 @@ function draw() {
   barri5.he,
   mouseX,
   mouseY,
-  100);
+  100/2);
   if (hit === true) {
-    document.getElementById("entag").innerHTML = "Score is " + (Math.floor(tim)) + " points";
+    document.getElementById("entag").innerHTML = "END!!! Score is " + ad.poi + " points";
+    cursor("default");
     noloop();
   }
 }
@@ -137,18 +145,17 @@ function ad() {
   this.actad = function() {
     ad.poi;
     ad.poi++;
-    document.getElementById("entag").innerHTML = ad.poi;
+    //document.getElementById("entag").innerHTML = ad.poi;
   }
 }
-
 function suta() {
   this.act = function() {
     if (millis() < (0500)) {
-  window.alert((Math.floor(tim)));
+  
+  window.alert("welcome");
     }
    }
 }
-
 function plr() {
 //this.x = 125;
 //this.y = 200;
@@ -156,7 +163,7 @@ function plr() {
 this.show = function() {
   fill(color("dodgerblue"));
   strokeWeight(0);
-  ellipse(mouseX,mouseY,120,120,20);
+  ellipse(mouseX,mouseY,50,50,20);
 }
 /*this.update = function() {
   if ((keyIsDown(65)) && (this.x > 0)) {
@@ -173,7 +180,6 @@ this.show = function() {
 }
 }*/
 }
-
 function barri() {
   this.leftPull = .001;
   this.velocity = .5;
@@ -188,7 +194,7 @@ function barri() {
     rect(this.x,this.y,this.wi,this.he);
   }
   this.update = function() {
-    if (this.velocity < 10) {
+    if (this.velocity < 13) {
       this.velocity += this.leftPull;
       this.x -= this.velocity;
   }
@@ -218,7 +224,7 @@ function barri2() {
     rect(this.x,this.y,this.wi,this.he);
   }
   this.update = function() {
-    if (this.velocity < 28) {
+    if (this.velocity < 31) {
       this.velocity += this.leftPull;
       this.x -= this.velocity;
   }
@@ -228,6 +234,7 @@ function barri2() {
   }
   this.rep = function() {
     if (this.x  + 500 < w - w) {
+      fill(random(256),random(256),random(256));
       this.x = w + this.wi;
       this.y = Math.floor((Math.random() * h) + 10);
     }
@@ -248,7 +255,7 @@ function barri3() {
     rect(this.x,this.y,this.wi,this.he);
   }
   this.update = function() {
-    if (this.velocity < 20) {
+    if (this.velocity < 25) {
       this.velocity += this.leftPull;
       this.x -= this.velocity;
   }
@@ -328,7 +335,6 @@ function barri5() {
     
 }
 }
-
 function keyPressed() {
   if (keyIsDown(32)) {
     window.location.reload();
