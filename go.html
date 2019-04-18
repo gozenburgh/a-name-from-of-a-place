@@ -2,6 +2,7 @@
 <head>
 <script src="p5.min.js"></script>
 <script src="p5.collide2d.js"></script>
+<script src="p5.sound.min.js"></script>
 <style>
 body {
   overflow:hidden;
@@ -36,6 +37,12 @@ var barri2 = new barri2();
 var barri3 = new barri3();
 var barri4 = new barri4();
 var barri5 = new barri5();
+
+function preload() {
+  soundFormats('mp3');
+  mySound = loadSound('.mp3');
+}
+
 function setup() {
   createCanvas(w,h);
   
@@ -139,6 +146,8 @@ function draw() {
     noloop();
   }
 }
+
+
   
 function ad() {
   this.poi = 0;
@@ -150,8 +159,8 @@ function ad() {
 }
 function suta() {
   this.act = function() {
-    if (millis() < (0750)) {
-  window.alert("welcome WEL-COME to 'name' (っ^o^)っ Use mouse to dodge evil quadrilaterals and see how long you can last  (press space to restart btw... or the reload button I guess...)");
+    if (millis() < (0350)) {
+  window.alert("welcome WEL-COME to 'name' (っ^o^)っ Use mouse to dodge evil quadrilaterals and see how long you can last  (press space to restart btw or the reload button... I guess...)");
     }
    }
 }
