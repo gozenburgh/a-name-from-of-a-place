@@ -2,7 +2,6 @@
 <head>
 <script src="p5.min.js"></script>
 <script src="p5.collide2d.js"></script>
-<script src="p5.sound.min.js"></script>
 <style>
 body {
   overflow:hidden;
@@ -37,11 +36,6 @@ var barri2 = new barri2();
 var barri3 = new barri3();
 var barri4 = new barri4();
 var barri5 = new barri5();
-
-function preload() {
-  soundFormats('mp3');
-  mySound = loadSound('.mp3');
-}
 
 function setup() {
   createCanvas(w,h);
