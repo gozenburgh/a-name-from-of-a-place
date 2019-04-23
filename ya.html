@@ -1,0 +1,45 @@
+<html>
+<head>
+<script src="p5.min.js"></script>
+</head>
+<body>
+
+<script>
+/*var img;
+function preload() {
+  img = loadImage();
+}*/
+function setup() {
+  createCanvas(window.innerWidth,window.innerHeight,WEBGL)
+}
+function draw() {
+  background("gray");
+  var locX = mouseX - width/2;
+  var locY = mouseY - height/2;
+  rotateX(frameCount * 0.001);
+  rotateZ(frameCount * 0.00001);
+  pointLight(255,255,255,width,height,10);
+  specularMaterial(190);
+  noStroke();
+  //texture(img);
+  translate(mouseX-width/2,mouseY-height/2);
+  //torus(260,63,30,30);
+  cone(50,50);
+  rotateX(frameCount * 0.005);
+  rotateZ(frameCount * 0.02);
+  pointLight(255,255,255,width,height,10);
+  specularMaterial(210);
+  noStroke();
+  translate(width/6,height/35);
+  cone(50,50);
+  rotateX(frameCount * 0.035);
+  rotateZ(frameCount * 0.0005);
+  pointLight(255,255,255,width,height,10);
+  specularMaterial(135);
+  noStroke();
+  translate(width/7,height/45);
+  cone(50,50);
+}
+</script>
+</body>
+</html>
