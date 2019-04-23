@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="p5.min.js"></script>
+</head>
+<body>
+
+<script>
+function setup() {
+  createCanvas(500,500,WEBGL)
+}
+
+function draw() {
+  background(255);
+  var locX = mouseX - width/2;
+  var locY = mouseY - height/2;
+  rotateX(frameCount * 0.01);
+  rotateZ(frameCount * 0.01);
+  directionalLight(113,152,210,-locX,-locY,-75);
+  specularMaterial(255);
+  noStroke();
+  cone(175,120);
+}
+</script>
+</body>
+</html>
