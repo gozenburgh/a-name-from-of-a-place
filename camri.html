@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="p5.min.js"></script>
+<script src="p5.dom.min.js"></script>
+</head>
+<body>
+
+<script>
+var video;
+
+function setup() {
+  createCanvas(640,480);
+  video = createCapture(VIDEO);
+}
+function draw() {
+  //background(0);
+  tint(200,0,0);
+  image(video,0,0);
+  //capture.size(window.innerWidth,window.innerHeight);
+  //image(capture,0,0,600,600);
+}
+
+function keyPressed() {
+  if (keyCode == "83"){
+    save("snapshot.png");
+  }
+}
+
+</script>
+</body>
+</html>
