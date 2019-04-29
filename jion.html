@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>p5.min.js</script>
+<script>p5.geolocation.js</script>
+</head>
+<body>
+<h1 id="gotgeo"></h1>
+<h1 id="lat"></h1>
+<h1 id="lon"></h1>
+<script>
+function setup(){
+	if(geoCheck() == true){
+	  document.getElementById("gotgeo").innerHTML = "geolocation avaliable";
+	}else{
+	  document.getElementById("gotgeo").innerHTML = "geolocation unavaliable";
+	}
+	getCurrentPosition(doThisOnLocation);
+}
+
+function doThisOnLocation(position) {
+   document.getElementById("lat").innerHTML = "lat: " + position.latitude;
+   document.getElementById("lon").innerHTML = "long: " + position.longitude;
+}
+
+</script>
+</body>
+</html>
