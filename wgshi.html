@@ -1,0 +1,42 @@
+<html>
+<head>
+<script src="p5.min.js"></script>
+</head>
+<body>
+
+<script>
+/*var img;
+function preload() {
+  img = loadImage();
+}*/
+function setup() {
+  createCanvas(window.innerWidth,window.innerHeight,WEBGL)
+}
+function draw() {
+  background("gray");
+  rotateX(mouseX/24);
+  rotateZ(mouseY/24);
+  noStroke();
+  let s = color(240,230,140);
+  fill(s);
+  cylinder(2, 120);
+  
+  
+  let m3 = color(124,252,0);
+  fill(m3);
+  sphere(17, );
+  translate(0,31);
+  
+  let m2 = color(230,230,250);
+  fill(m2);
+  sphere(17, );
+  translate(0,33);
+  
+  let m1 = color(255,228,225);
+  fill(m1);
+  sphere(17, );
+}
+
+</script>
+</body>
+</html>
